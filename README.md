@@ -1,4 +1,5 @@
-# YouTube Player Bypass
+# YouTube Player Bypass v2 (12-14-25)
+# Updated by BandzCoderz via (ChatGPT) working ✅
 
 A Tampermonkey userscript that replaces YouTube's default video player with an embedded iframe player. This script is designed to bypass certain restrictions, such as the 59-second limit, and provide a more customizable viewing experience.
 
@@ -7,6 +8,10 @@ A Tampermonkey userscript that replaces YouTube's default video player with an e
 ## ⚠️ Disclaimer
 
 This script is provided for educational purposes only. Using this script may violate YouTube's Terms of Service. Use it at your own discretion.
+
+## Tested
+
+Tested with AdBlock Plus And Ghostery Running on Chrome Beta 144.0.7559.20 (Official Build) beta (arm64); M2 Mac
 
 ---
 
@@ -43,22 +48,53 @@ This script is provided for educational purposes only. Using this script may vio
 
 ## ⚙️ Configuration
 
-The script includes a `CONFIG` object that allows you to customize its behavior:
+The script is configurable.
+All config lives in one object near the top.
 
-- **`PLAYER_SELECTOR`**: The CSS selector for the player container.
-- **`RETRY_ATTEMPTS`**: Number of retries if the player container is not found.
-- **`RETRY_DELAY`**: Delay (in milliseconds) between retries.
-- **`DEFAULT_QUALITY`**: Default video quality (e.g., `hd1080`).
-- **`IFRAME_STYLES`**: Custom styles for the iframe player.
+Common tweaks
+Feature----------------Change
+Disable autoplay-------autoplay: '0'
+Hide controls----------`controls: '0'
+Disable fullscreen-----fs: '0'
+Show related videos----rel: '1'
+
+1️⃣ Retry behavior (timing & reliability)
+RETRY_ATTEMPTS: 10,   // How many times to wait for player
+RETRY_DELAY: 800     // Delay (ms) between retries
+👉 Increase if YouTube loads slowly.
+
+2️⃣ Player container targeting
+PLAYER_SELECTORS: [
+    '#player',
+    '#movie_player',
+    'ytd-player'
+]
+👉 You can add/remove selectors if YouTube changes again.
+
+3️⃣ Visual appearance (iframe)
+IFRAME_STYLE: {
+    width: '100%',
+    height: '100%',
+    border: 'none',
+    borderRadius: '12px'
+}
+
+4️⃣ Player behavior (query params)
+In createIframe():
+const params = new URLSearchParams({
+    autoplay: '1',           // change to '0'
+    controls: '1',           // hide controls: '0'
+    modestbranding: '1',
+    rel: '0',
+    enablejsapi: '1',
+    fs: '1'
+});
 
 ---
 
 ## 🐛 Known Issues
 
-- Some YouTube features (e.g., annotations, live chat) may not work in the embedded player.
-- The script may need updates if YouTube changes its player structure.
-
----
+- none at this moment
 
 ## 🤝 Contributing
 
