@@ -73,12 +73,8 @@ To handle YouTube’s single-page application (SPA) architecture, the script hoo
 The script is configurable.
 All config lives in one object near the top.
 
-Common tweaks
-Feature----------------Change
-Disable autoplay-------autoplay: '0'
-Hide controls----------`controls: '0'
-Disable fullscreen-----fs: '0'
-Show related videos----rel: '1'
+## Common tweaks
+![preview2](https://i.imgur.com/iw46E46.jpeg)
 
 1️⃣ Retry behavior (timing & reliability)
 RETRY_ATTEMPTS: 10,   // How many times to wait for player
