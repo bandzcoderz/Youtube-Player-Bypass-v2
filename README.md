@@ -23,13 +23,13 @@ YouTube Player Bypass is a modern Tampermonkey userscript that intercepts YouTub
 
 ---
 
-##Technical
+## 🛠️ Technical
 
 YouTube Player Bypass works by detecting the video player container on YouTube’s watch pages and replacing the native HTML5 player with a lightweight embedded iframe. It first stops all existing video and audio elements to prevent overlapping playback, then creates a configurable iframe with autoplay, controls, and quality settings. The script applies custom styles to the iframe, ensuring it fits seamlessly within the page layout, and uses retry logic to handle slow-loading or delayed player elements.
 
 To handle YouTube’s single-page application (SPA) architecture, the script hooks into navigation events like yt-navigate-finish and yt-page-data-updated, ensuring the iframe replacement occurs whenever the user navigates between videos without a full page reload. Additionally, it includes a fallback URL-change watcher to catch navigation events that YouTube sometimes skips. This design makes the script resilient to frequent YouTube layout changes while maintaining a distraction-free and fully controllable player experience.
 
-##Diagram
+## 🤓 Diagram
 
 ![preview](https://i.imgur.com/RE0bNpr.jpeg)
 
