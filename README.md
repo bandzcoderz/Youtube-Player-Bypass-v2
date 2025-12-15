@@ -9,11 +9,33 @@ A Tampermonkey userscript that replaces YouTube's default video player with an e
 
 This script is provided for educational purposes only. Using this script may violate YouTube's Terms of Service. Use it at your own discretion.
 
+---
+
 ## Tested
 
 Tested with AdBlock Plus And Ghostery Running on Chrome Beta 144.0.7559.20 (Official Build) beta (arm64); M2 Mac
 
 ---
+
+## Description
+
+YouTube Player Bypass is a modern Tampermonkey userscript that intercepts YouTube’s watch pages and replaces the native HTML5 player with a lightweight embedded iframe player. Designed specifically for YouTube’s single‑page application (SPA) architecture, it listens for navigation events, stops the original media playback, and dynamically injects a clean, configurable player without requiring page reloads. The script is resilient to frequent YouTube layout changes, avoids fragile internal APIs, and allows easy customization of autoplay behavior, controls, sizing, and appearance—making it a reliable solution for users seeking a simplified, distraction‑free YouTube playback experience.
+
+---
+
+##Technical
+
+YouTube Player Bypass works by detecting the video player container on YouTube’s watch pages and replacing the native HTML5 player with a lightweight embedded iframe. It first stops all existing video and audio elements to prevent overlapping playback, then creates a configurable iframe with autoplay, controls, and quality settings. The script applies custom styles to the iframe, ensuring it fits seamlessly within the page layout, and uses retry logic to handle slow-loading or delayed player elements.
+
+To handle YouTube’s single-page application (SPA) architecture, the script hooks into navigation events like yt-navigate-finish and yt-page-data-updated, ensuring the iframe replacement occurs whenever the user navigates between videos without a full page reload. Additionally, it includes a fallback URL-change watcher to catch navigation events that YouTube sometimes skips. This design makes the script resilient to frequent YouTube layout changes while maintaining a distraction-free and fully controllable player experience.
+
+##Diagram
+
+![preview](https://i.imgur.com/RE0bNpr.jpeg)
+
+---
+
+
 
 ## 📋 Features
 
